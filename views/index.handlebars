@@ -1,0 +1,64 @@
+<style media="screen">
+  body {
+    text-align: center;
+    background: rgb(168, 34, 34);
+    color: white;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  img {
+    height: 250px;
+    width: 350px;
+  }
+</style>
+
+<h1>Eat A Burger!</h1>
+
+<img src="https://amp.businessinsider.com/images/5ab9459471d3a51a008b4b9b-750-562.jpg">
+
+<br>
+<br>
+
+<h2>Available Burgers:</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{!-- {{> burgers/burger-block devoured=true}} --}}
+        <li>
+          {{burger_name}}
+        <button class="change-devoured" data-id="{{id}}" data-devoured="{{devoured}}">
+          {{#if devoured}}Devour It!{{else}}{{/if}}
+        </button>
+        </li>
+    {{/unless}}
+  {{/each}}
+</ul>
+
+
+
+<h2>Devoured Burgers:</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{!-- {{> burgers/burger-block devoured=false}} --}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <br>
+  
+  <button type="submit">Add Burger</button>
+</form>
