@@ -1,20 +1,3 @@
-<style media="screen">
-  body {
-    text-align: center;
-    background: rgb(168, 34, 34);
-    color: white;
-  }
-
-  label {
-    font-weight: bold;
-  }
-
-  img {
-    height: 250px;
-    width: 350px;
-  }
-</style>
-
 <h1>Eat A Burger!</h1>
 
 <img src="https://amp.businessinsider.com/images/5ab9459471d3a51a008b4b9b-750-562.jpg">
@@ -27,11 +10,10 @@
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      {{!-- {{> burgers/burger-block devoured=true}} --}}
         <li>
           {{burger_name}}
         <button class="change-devoured" data-id="{{id}}" data-devoured="{{devoured}}">
-          {{#if devoured}}Devour It!{{else}}{{/if}}
+          {{#if devoured}}{{else}}Devour It!{{/if}}
         </button>
         </li>
     {{/unless}}
@@ -45,7 +27,9 @@
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-      {{!-- {{> burgers/burger-block devoured=false}} --}}
+        <li>
+          {{burger_name}}
+        </li>
     {{/if}}
   {{/each}}
 </ul>
@@ -59,6 +43,6 @@
   </div>
 
   <br>
-  
+
   <button type="submit">Add Burger</button>
 </form>

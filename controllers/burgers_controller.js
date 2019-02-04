@@ -36,18 +36,15 @@ router.post("/api/burgers", function (req, res){
 // Update to devoured
 
 router.put("/api/burgers/:id", function (req, res) {
-    var update = "id: = " + req.param.id;
+    var update = "id = " + req.params.id;
 
     console.log("update", update);
 
     burgers.updateOne({
         devoured: req.body.devoured
-    }, update, function (res){
-        if(res.ChangedRows === 0) {
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
+    }, update, function (result){
+        console.log(result);
+        res.sendStatus(200);
     });
 });
 

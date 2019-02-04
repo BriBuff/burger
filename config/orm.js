@@ -24,10 +24,10 @@ function objSQL(ob) {
     for (var key in ob) {
         var val = ob[key];
         if (Object.hasOwnProperty.call(ob, key)) {
-            if (typeof value === "string" && value.indexOf(" ") >= 0 ) {
-                value = "'" + value + "'";
+            if (typeof val === "string" && val.indexOf(" ") >= 0 ) {
+                val = "'" + val + "'";
             }
-            array.push(key + "=" + value);
+            array.push(key + "=" + val);
         }
     }
 
@@ -63,7 +63,7 @@ var orm = {
                 throw err;
             }
 
-            cb(result);
+            cb(res);
         });
     },
 
@@ -75,7 +75,7 @@ var orm = {
         queryString += " WHERE ";
         queryString += condition;
 
-        console.log(queryString);
+        console.log("queryString", queryString);
 
         connection.query(queryString, function(err, res) {
             if (err) {
