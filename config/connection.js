@@ -1,6 +1,6 @@
 // mySQL Connection
 
-var mySQL = require("mySQL");
+var mySQL = require("mysql");
 
 var connection;
 
